@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f8a">
+  <meta name="description" content="Abel Matemática: conteúdos, exemplos, flashcards e exercícios para o Ensino Médio.">
+  <title>Abel Matemática | Aprenda no seu ritmo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" data-page="inicio">
+      <img src="imagens/logo-escola.jpg" alt="Logo da escola"
+           onerror="this.style.display='none'">
+      <span>Abel <b>Matemática</b></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle"
+            aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+    <nav id="mainNav" aria-label="Menu principal">
+      <button class="nav-link active" data-page="inicio">Início</button>
+      <button class="nav-link" data-page="conteudos">Conteúdos</button>
+      <button class="nav-link" data-page="exercicios">Exercícios</button>
+      <button class="nav-link" data-page="desenvolvimento">Meu desenvolvimento</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- INÍCIO -->
+    <section class="page active" id="page-inicio">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">SUA JORNADA COMEÇA AQUI</span>
+          <h1>Matemática pode ser mais fácil. <span>Vamos aprender?</span></h1>
+          <p>
+            Estude no seu ritmo, entenda os conteúdos passo a passo,
+            pratique com exercícios e acompanhe sua evolução.
+          </p>
+          <button class="btn btn-yellow" data-go="conteudos">Começar a estudar →</button>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="math-symbol symbol-one">π</span>
+          <span class="math-symbol symbol-two">x²</span>
+          <span class="math-symbol symbol-three">÷</span>
+          <div class="art-card">A + B = ?</div>
+        </div>
+      </div>
+
+      <div class="welcome-row">
+        <div>
+          <span class="eyebrow">BEM-VINDO(A)!</span>
+          <h2>Seu espaço de aprendizagem</h2>
+          <p>Escolha um assunto, estude a explicação e depois teste o que aprendeu.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-icon">📚</span>
+          <span class="stat-label">Assuntos disponíveis</span>
+          <strong id="homeTopics">8</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">✏️</span>
+          <span class="stat-label">Questões respondidas</span>
+          <strong id="homeAnswered">0</strong>
+        </article>
+        <article class="stat-card">
+          <span class="stat-icon">🎯</span>
+          <span class="stat-label">Aproveitamento geral</span>
+          <strong id="homeAccuracy">0%</strong>
+        </article>
+      </div>
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">ESCOLHA POR ONDE COMEÇAR</span>
+          <h2>Explore os conteúdos</h2>
+        </div>
+        <button class="text-button" data-go="conteudos">Ver todos →</button>
+      </div>
+      <div class="topic-grid" id="homeTopicGrid"></div>
+
+      <div class="study-banner">
+        <div class="banner-icon">💡</div>
+        <div>
+          <h3>Uma dica para estudar melhor</h3>
+          <p>Leia a explicação, acompanhe o exemplo resolvido e tente fazer os exercícios sem olhar a resposta.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTEÚDOS -->
+    <section class="page" id="page-conteudos">
+      <div class="page-heading">
+        <span class="eyebrow">APRENDA PASSO A PASSO</span>
+        <h1>Conteúdos de Matemática</h1>
+        <p>Escolha um tema para estudar a teoria, ver exemplos e revisar com flashcards.</p>
+      </div>
+
+      <div class="content-layout">
+        <aside class="topic-sidebar">
+          <h3>Assuntos</h3>
+          <div id="topicList" class="topic-list"></div>
+        </aside>
+
+        <article class="lesson-panel">
+          <div id="lessonContent"></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXERCÍCIOS -->
+    <section class="page" id="page-exercicios">
+      <div class="page-heading">
+        <span class="eyebrow">PRATIQUE O QUE APRENDEU</span>
+        <h1>Central de exercícios</h1>
+        <p>Selecione o assunto e a dificuldade. Responda e confira a explicação.</p>
+      </div>
+
+      <div class="exercise-settings">
+        <label>
+          Assunto
+          <select id="exerciseTopic"></select>
+        </label>
+        <label>
+          Dificuldade
+          <select id="exerciseLevel">
+            <option value="facil">Fácil</option>
+            <option value="medio">Médio</option>
+            <option value="dificil">Difícil</option>
+          </select>
+        </label>
+        <button class="btn btn-blue" id="startExercise">Iniciar exercícios</button>
+      </div>
+
+      <div class="exercise-summary" id="exerciseSummary">
+        <span>📝</span>
+        <div>
+          <h3>Prepare-se para praticar!</h3>
+          <p>Escolha um assunto e um nível de dificuldade acima para começar.</p>
+        </div>
+      </div>
+
+      <div id="exerciseArea" aria-live="polite"></div>
+    </section>
+
+    <!-- DESENVOLVIMENTO -->
+    <section class="page" id="page-desenvolvimento">
+      <div class="page-heading">
+        <span class="eyebrow">CADA PASSO É UMA CONQUISTA</span>
+        <h1>Meu desenvolvimento</h1>
+        <p>Acompanhe seu desempenho com base nos exercícios respondidos neste navegador.</p>
+      </div>
+
+      <div class="progress-grid">
+        <article class="progress-card">
+          <span>Questões respondidas</span>
+          <strong id="progressAnswered">0</strong>
+        </article>
+        <article class="progress-card">
+          <span>Respostas corretas</span>
+          <strong id="progressCorrect">0</strong>
+        </article>
+        <article class="progress-card">
+          <span>Aproveitamento</span>
+          <strong id="progressAccuracy">0%</strong>
+        </article>
+      </div>
+
+      <div class="progress-panel">
+        <h2>Desempenho por assunto</h2>
+        <p class="muted">Veja quantas questões você respondeu e quantas acertou em cada tema.</p>
+        <div id="topicProgress"></div>
+      </div>
+
+      <div class="progress-panel">
+        <h2>Histórico recente</h2>
+        <div id="recentHistory"></div>
+      </div>
+
+      <button class="btn btn-outline" id="resetProgress">Limpar meu progresso</button>
+      <p class="small-note">O progresso é salvo neste navegador e neste dispositivo. Ele não é sincronizado automaticamente com outros aparelhos.</p>
+    </section>
+  </main>
+
+<footer>
+  <div class="footer-brand">Abel <b>Matemática</b></div>
+  <p>Ana Raquel Cabral da Silva, 3º ano de Informática</p>
+</footer>
+
+  <nav class="bottom-nav" aria-label="Navegação inferior">
+    <button class="bottom-link active" data-page="inicio">
+      <span>⌂</span>Início
+    </button>
+    <button class="bottom-link" data-page="conteudos">
+      <span>▤</span>Conteúdos
+    </button>
+    <button class="bottom-link" data-page="exercicios">
+      <span>✓</span>Exercícios
+    </button>
+    <button class="bottom-link" data-page="desenvolvimento">
+      <span>▥</span>Progresso
+    </button>
+  </nav>
+
+  <script src="script.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(error => {
+          console.error("Não foi possível registrar o Service Worker:", error);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
