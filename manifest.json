@@ -1,18 +1,18 @@
 
 {
-  name Abel Matemática,
-  short_name Abel Matemática,
-  description Plataforma de reforço escolar de Matemática da Escola Estadual Professor Abel Freire Coelho.,
-  start_url .index.html,
-  scope .,
-  display standalone,
-  background_color #f6f8fc,
-  theme_color #173f8a,
-  icons [
+  "name": "Abel Matemática",
+  "short_name": "Abel Matemática",
+  "description": "Plataforma de reforço escolar de Matemática da Escola Estadual Professor Abel Freire Coelho.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#173f8a",
+  "icons": [
     {
-      src .imagensicone-app.png,
-      sizes 1024x1024,
-      type imagepng
+      "src": "./imagens/icone-app.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
     }
   ]
 }
